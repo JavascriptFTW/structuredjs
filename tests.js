@@ -126,8 +126,12 @@ var basicTests = function() {
             "Empty array matches [,]");
             
         ok(Structured.match("var myVar = \"abc I love strings!\"", function() {
+            var _ = 'abc I love strings!';
+        }), "\"text\" matches 'text'");
+        
+        ok(Structured.match("var myVar = 'abc I love strings!'", function() {
             var _ = "abc I love strings!";
-        }), "\"text\" will match 'text'")
+        }), "'text' matches \"text\"");
     });
 
     test("Negative tests of syntax", function() {
